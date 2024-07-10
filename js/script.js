@@ -8,7 +8,7 @@ const onGenerateSubmit = (e) => {
   clearUI();
 
   const url = document.getElementById("url").value;
-  const size = document.getElementById("size").value;
+ 
 
   // Validate url
   if (url === "") {
@@ -18,7 +18,7 @@ const onGenerateSubmit = (e) => {
     // Show spinner for 1 sec
     setTimeout(() => {
       hideSpinner();
-      generateQRCode(url, size);
+      generateQRCode(url);
       showScanner();
       // Generate the save button after the qr code image src is ready
       setTimeout(() => {
@@ -32,11 +32,11 @@ const onGenerateSubmit = (e) => {
 };
 
 // Generate QR code
-const generateQRCode = (url, size) => {
+const generateQRCode = (url) => {
   const qrcode = new QRCode("qrcode", {
     text: url,
-    width: size,
-    height: size,
+    width: 300,
+    height: 300,
   });
 };
 
